@@ -4,7 +4,7 @@ inputs:
   repo:
     description: "Url of the repo to update. Defaults to current one."
     required: false
-    default: "${{ github.event.repository.name }}"
+    default: "github.com/${{ github.repository }}"
 
 runs:
   using: "composite"
