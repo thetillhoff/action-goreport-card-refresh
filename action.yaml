@@ -1,4 +1,5 @@
 name: Refresh goreportcard
+description: Triggers an update on https://goreportcard.com for a repository and waits until the update is complete.
 
 inputs:
   repo:
