@@ -5,7 +5,7 @@ This action triggers a refresh for your repository on https://goreportcard.com.
 
 Example usage:
 ```yaml
-name: Release Golang Application
+name: Release new version
 
 on:
   push:
@@ -13,8 +13,20 @@ on:
     - "v[0-9]+.[0-9]+.[0-9]+"
 
 jobs:
-  # [...] Tests etc.
+  release-prerequisites:
+    # [...] See https://github.com/thetillhoff/action-release-prerequisites
 
-  goreportcard-refresh:
-  - uses: thetillhoff/action-goreportcard-refresh@v1.0.0
+  golang-build:
+    # [...] See https://github.com/thetillhoff/action-golang-build
+
+  release-artifacts:
+    needs:
+      - release-prerequisites
+      - golang-build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - # [...] See https://github.com/thetillhoff/action-release-artifacts
+      - uses: thetillhoff/action-goreportcard-refresh@v1.0.0
 ```
