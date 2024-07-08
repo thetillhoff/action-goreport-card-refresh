@@ -28,5 +28,5 @@ jobs:
       contents: write
     steps:
       - # [...] See https://github.com/thetillhoff/action-release-artifacts
-      - uses: thetillhoff/action-goreportcard-refresh@v1.0.0
+      - uses: thetillhoff/action-goreportcard-refresh@v1.0.1
 ```
